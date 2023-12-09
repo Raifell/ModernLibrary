@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="box">
+        <h4 style="text-align: center">{{ author.name }} {{ author.surname }}</h4>
+        <p>Книги:</p>
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }}</li>
+            {% endfor %}
+        </ul>
+        <p style="text-align: end;">
+            <a href="{% url 'update_author_page' author.slug %}">Обновить</a> |
+            <a href="{% url 'delete_author_page' author.slug %}">Удалить</a>
+        </p>
+    </div>
+{% endblock %}

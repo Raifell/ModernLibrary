@@ -1,0 +1,9 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Удалить {{ book.title }}?</p>
+        <input type="submit" value="Удалить">
+    </form>
+{% endblock %}

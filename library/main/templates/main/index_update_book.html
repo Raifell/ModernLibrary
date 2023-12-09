@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% for f in form %}
+            <p style="display: flex; justify-content: space-between; gap: 20px;">{{ f.label }}: {{ f }}</p>
+            {% if f.errors %}<p>{{ f.errors }}</p>{% endif %}
+        {% endfor %}
+        <input type="submit" value="Обновить">
+    </form>
+{% endblock %}

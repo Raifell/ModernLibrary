@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block content %}
+    {% for author in authors %}
+        <div class="box">
+            <h4 style="text-align: center">{{ author.name }} {{ author.surname }}</h4>
+            <a href="{% url 'author_page' author.slug %}">На страницу...</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block content %}
+    {% for book in books %}
+        <div class="box">
+            <p style="text-align: end">Жанр: {% for genre in book.genre.all %}{{ genre }} {% endfor %}</p>
+            <h4 style="text-align: center">{{ book.title }}</h4>
+            <a href="{% url 'book_page' book.slug %}">На страницу...</a>
+        </div>
+    {% endfor %}
+{% endblock %}
